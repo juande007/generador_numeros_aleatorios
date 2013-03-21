@@ -44,9 +44,30 @@ public double formula_multi(){
     }
      
 public void analisar_mixto(){}
+
 public void analisar_multi(){}
 
-     
-     
+static double maximoComunDivisor(double a, double b) {
+	   if (b==0) 
+	     return a;
+	   else
+	     return maximoComunDivisor(b, a % b);
+	}
+ public boolean validaSiSonPrimosRelativos(double A,double B){
+      
+        if(maximoComunDivisor(A,B)==1){            
+            System.out.println("Son primos relativos");
+            return true;
+        }else{
+            System.out.println("No son primos relativos");
+            return false;
+        }    
+ }
+ 
+ 
+ 
+ 
+ 
+ 
 }
 

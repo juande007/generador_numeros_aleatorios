@@ -40,6 +40,14 @@ textpa.setText("");
 textpc.setText("");
 textpx0.setText("");
 textpn.setText("");
+//textpmatiz.setText("0");
+opcd.setSelected(true);
+llenar_decimal();
+opcmix.setSelected(true);
+llenar_mix();
+//textppala.enable(false);
+
+//opcmix.setSelected(true);
     }
 
     /**
@@ -522,12 +530,16 @@ textpn.setText("");
     private void textpcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textpcActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textpcActionPerformed
-
-    private void opcbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcbActionPerformed
+public void llenar_binario(){
 textppala.enable(true);
         base="2";   
 textpmatiz.setText("");
-textpmatiz.enable(false);// TODO add your handling code here:
+textpmatiz.enable(false);
+textppala.setText("0");
+}
+    private void opcbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcbActionPerformed
+llenar_binario();
+        // TODO add your handling code here:
     }//GEN-LAST:event_opcbActionPerformed
 
     private void textpmatizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textpmatizActionPerformed
@@ -589,19 +601,24 @@ flag=true;
         // TODO add your handling code here:
     }//GEN-LAST:event_opcmultiActionPerformed
 
-    private void opcmixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcmixActionPerformed
-textpc.enable(true);  
+    public void llenar_mix(){
+    textpc.enable(true);  
 //opcmix.enable(true);
 if(textpc.getText()==""){textpc.setText("");} else textpc.setText(textpc.getText());
+    }
+    private void opcmixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcmixActionPerformed
+llenar_mix();
 
 //opcmulti.enable(false);// TODO add your handling code here:
     }//GEN-LAST:event_opcmixActionPerformed
-
-    private void opcdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcdActionPerformed
-textpmatiz.enable(true);
+public void llenar_decimal(){textpmatiz.enable(true);
         base="10"; 
 textppala.setText("");
-textppala.enable(false);// TODO add your handling code here:
+textppala.enable(false);
+textpmatiz.setText("0");}
+    private void opcdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcdActionPerformed
+llenar_decimal();
+        // TODO add your handling code here:
     }//GEN-LAST:event_opcdActionPerformed
 int cantidad;
 int temporalbase;
@@ -610,7 +627,7 @@ int temporalbase;
         //resultadop.setText(base);
         
        
-   if( textpm.getText() ==null || textpm.getText().equals("") || textpa.getText() ==null || textpa.getText().equals("")||textpc.getText() ==null || textpc.getText().equals("")|| textpx0.getText() ==null || textpx0.getText().equals("")||textpn.getText() ==null || textpn.getText().equals(""))
+   if( (textpm.getText() ==null || textpm.getText().equals("") || textpa.getText() ==null || textpa.getText().equals("")||textpc.getText() ==null || textpc.getText().equals("")|| textpx0.getText() ==null || textpx0.getText().equals("")||textpn.getText() ==null || textpn.getText().equals("")))
    {resultadop.setText("ERROR !!!! !!");
    
    
@@ -703,24 +720,11 @@ int temporalbase;
         System.out.println("Primo final"+primo);
     }  
  
-  public boolean validaSiSonPrimosRelativos(long A,long B){
-      
-        if(maximoComunDivisor(A,B)==1){            
-            System.out.println("Son primos relativos");
-            return true;
-        }else{
-            System.out.println("No son primos relativos");
-            return false;
-        }
+  
     
         
-    }
-  static long maximoComunDivisor(long a, long b) {
-	   if (b==0) 
-	     return a;
-	   else
-	     return maximoComunDivisor(b, a % b);
-	}
+    
+  
     
     /**
      * @param args the command line arguments
