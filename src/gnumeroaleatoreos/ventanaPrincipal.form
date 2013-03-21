@@ -326,7 +326,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel14">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Matiza"/>
+            <Property name="text" type="java.lang.String" value="Mantisa"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">

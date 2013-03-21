@@ -43,7 +43,9 @@ public double formula_multi(){
         return xi;
     }
      
-     
+public void analisar_mixto(){}
+public void analisar_multi(){}
+
      
      
 }

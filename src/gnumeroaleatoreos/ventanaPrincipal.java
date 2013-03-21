@@ -168,7 +168,7 @@ textpn.setText("");
 
         jLabel13.setText("Tipo de generador congruencial");
 
-        jLabel14.setText("Matiza");
+        jLabel14.setText("Mantisa");
 
         jLabel15.setText("Tamaño de palabra");
 
@@ -603,7 +603,7 @@ int temporalbase;
    
    
    //Icon ico = new ImageIcon(getClass().getResource("/imagenes/image.png"));
-   JOptionPane.showMessageDialog(this,"Mensaje con imagen", "Titulo del mensaje",JOptionPane.WARNING_MESSAGE);
+   JOptionPane.showMessageDialog(this,"PI!! falta uno o mas campos por llenar", "Titulo del mensaje",JOptionPane.WARNING_MESSAGE);
    //javax.swing.JOptionPane. showMessageDialog (this, "[mira te falta llenar uno o mas espacios]");
    
    } 
