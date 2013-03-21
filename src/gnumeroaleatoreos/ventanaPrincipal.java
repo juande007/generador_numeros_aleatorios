@@ -4,15 +4,21 @@
  */
 package gnumeroaleatoreos;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
+import javax.swing.UnsupportedLookAndFeelException;
 /**
  *
  * @author juan
  */
 public class ventanaPrincipal extends javax.swing.JFrame {
+    
 Verificar vr;    
 boolean flag = false;
 String base;
@@ -23,6 +29,7 @@ double vector[];
      */
     public ventanaPrincipal() {
         initComponents();
+        
         
 buttonGroup1.add(opcmulti);
 buttonGroup1.add(opcmix);
@@ -97,8 +104,6 @@ textpn.setText("");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Generador de numeros aleatorios");
-
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
         textpc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -283,7 +288,6 @@ textpn.setText("");
                 .addGap(80, 80, 80))
         );
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setForeground(new java.awt.Color(255, 0, 51));
 
         resultadop.setColumns(20);
@@ -314,8 +318,6 @@ textpn.setText("");
                 .addComponent(resultadospp, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(24, Short.MAX_VALUE))
         );
-
-        jPanel4.setBackground(new java.awt.Color(255, 153, 51));
 
         jLabel9.setText("Komogorov Smith");
 
@@ -377,8 +379,6 @@ textpn.setText("");
                     .addComponent(jButton3))
                 .addGap(28, 28, 28))
         );
-
-        jPanel5.setBackground(new java.awt.Color(51, 255, 204));
 
         textpn.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -484,7 +484,7 @@ textpn.setText("");
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(473, Short.MAX_VALUE)
+                .addContainerGap(123, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(543, 543, 543))
         );
@@ -509,7 +509,7 @@ textpn.setText("");
                                     .addComponent(jButton4))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
@@ -660,9 +660,57 @@ int temporalbase;
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        System.out.println("pes 2013 the best");
+        validaSiSonPrimosRelativos(9000,588888882);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+ public void traerPrimo(long valor){
+        long carro=1;
+        long carro2=2;        
+        
+        long contador =2;
+        long primo=2;
+        long primoAnterior=2;
+        Boolean bandera=true;
+        do {
+            carro++;
+           // System.out.println("Carro2: "+carro2+" carro:"+carro);
+            while (carro2<=carro) {                
+                
+                if (carro2==carro) {
+                    primo=carro;    
+                    System.out.println("Primo"+primo);
+                    
+                    
+                }else             
+                if ((carro%carro2)==0) {
+                    carro2=carro+1;
+                    
+                    
+                }
+             
+                carro2++;
+            }
+            carro2=2;
+        } while (carro!=valor );        
+        System.out.println("Primo final"+primo);
+    }  
+ 
+  public void validaSiSonPrimosRelativos(long A,long B){
+      
+        if(maximoComunDivisor(A,B)==1){
+            System.out.println("Son primos relativos");
+        }else{
+            System.out.println("No son primos relativos");
+        }
+        
+    }
+  static long maximoComunDivisor(long a, long b) {
+	   if (b==0) 
+	     return a;
+	   else
+	     return maximoComunDivisor(b, a % b);
+	}
+    
     /**
      * @param args the command line arguments
      */
@@ -690,6 +738,22 @@ int temporalbase;
         }
         //</editor-fold>
 
+        for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+        if ("Nimbus".equals(info.getName())) {
+            try {
+                UIManager.setLookAndFeel(info.getClassName());
+                break;
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ventanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                Logger.getLogger(ventanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(ventanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (UnsupportedLookAndFeelException ex) {
+                Logger.getLogger(ventanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
