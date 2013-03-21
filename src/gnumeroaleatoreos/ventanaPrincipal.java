@@ -621,6 +621,7 @@ int temporalbase;
    } 
   
    else{
+       System.out.println("prueba.............................");
        
         String tempn=textpn.getText();
     cantidad=Integer.parseInt(tempn);
@@ -660,7 +661,14 @@ int temporalbase;
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        validaSiSonPrimosRelativos(9000,588888882);
+    //    validaSiSonPrimosRelativos(9000,588888882);
+     //   traerPrimo(50);
+        textpm.setText("256");
+        textpa.setText("17");
+        textpc.setText("13");
+        textpx0.setText("11");
+        textpn.setText("20");
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
  public void traerPrimo(long valor){
@@ -695,13 +703,16 @@ int temporalbase;
         System.out.println("Primo final"+primo);
     }  
  
-  public void validaSiSonPrimosRelativos(long A,long B){
+  public boolean validaSiSonPrimosRelativos(long A,long B){
       
-        if(maximoComunDivisor(A,B)==1){
+        if(maximoComunDivisor(A,B)==1){            
             System.out.println("Son primos relativos");
+            return true;
         }else{
             System.out.println("No son primos relativos");
+            return false;
         }
+    
         
     }
   static long maximoComunDivisor(long a, long b) {
