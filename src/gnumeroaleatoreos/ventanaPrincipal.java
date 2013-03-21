@@ -4,7 +4,10 @@
  */
 package gnumeroaleatoreos;
 import java.util.ArrayList;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 /**
  *
  * @author juan
@@ -13,6 +16,7 @@ public class ventanaPrincipal extends javax.swing.JFrame {
 Verificar vr;    
 boolean flag = false;
 String base;
+double vector[];
 
     /**
      * Creates new form ventanaPrincipal
@@ -24,6 +28,11 @@ buttonGroup1.add(opcmulti);
 buttonGroup1.add(opcmix);
 buttonGroup2.add(opcd);
 buttonGroup2.add(opcb);
+textpm.setText("");
+textpa.setText("");
+textpc.setText("");
+textpx0.setText("");
+textpn.setText("");
     }
 
     /**
@@ -58,9 +67,11 @@ buttonGroup2.add(opcb);
         textpmatiz = new javax.swing.JTextField();
         textppala = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
+        resultadospp = new javax.swing.JTabbedPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        resultadop = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        resultadopp = new javax.swing.JTextArea();
         jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -75,6 +86,7 @@ buttonGroup2.add(opcb);
         jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        prueba = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -273,24 +285,33 @@ buttonGroup2.add(opcb);
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setForeground(new java.awt.Color(255, 0, 51));
 
-        jTabbedPane1.addTab("Resutado de pruebas", jTabbedPane3);
-        jTabbedPane1.addTab("Resultados de Parametros", jTabbedPane2);
+        resultadop.setColumns(20);
+        resultadop.setRows(5);
+        jScrollPane2.setViewportView(resultadop);
+
+        resultadospp.addTab("Parametros ", jScrollPane2);
+
+        resultadopp.setColumns(20);
+        resultadopp.setRows(5);
+        jScrollPane3.setViewportView(resultadopp);
+
+        resultadospp.addTab("Resultados", jScrollPane3);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
-                .addGap(32, 32, 32))
+                .addGap(31, 31, 31)
+                .addComponent(resultadospp, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(resultadospp, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 153, 51));
@@ -409,6 +430,13 @@ buttonGroup2.add(opcb);
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        prueba.setText("Prueba");
+        prueba.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pruebaActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("File");
 
         jMenuItem1.setText("jMenuItem1");
@@ -435,13 +463,19 @@ buttonGroup2.add(opcb);
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(prueba)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(473, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(543, 543, 543))
         );
@@ -460,7 +494,9 @@ buttonGroup2.add(opcb);
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addGap(50, 50, 50)
+                                .addGap(16, 16, 16)
+                                .addComponent(prueba)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
@@ -477,7 +513,10 @@ buttonGroup2.add(opcb);
     }//GEN-LAST:event_textpcActionPerformed
 
     private void opcbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcbActionPerformed
-base="2";        // TODO add your handling code here:
+textppala.enable(true);
+        base="2";   
+textpmatiz.setText("");
+textpmatiz.enable(false);// TODO add your handling code here:
     }//GEN-LAST:event_opcbActionPerformed
 
     private void textpmatizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textpmatizActionPerformed
@@ -531,7 +570,7 @@ if((car<'0' || car>'9')) evt.consume();           // TODO add your handling code
     }//GEN-LAST:event_textppalaKeyTyped
 
     private void opcmultiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcmultiActionPerformed
-//flag=true;
+flag=true;
     //opcmulti.enable(true);
     textpc.setText("0");
     textpc.enable(false);
@@ -542,13 +581,71 @@ if((car<'0' || car>'9')) evt.consume();           // TODO add your handling code
     private void opcmixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcmixActionPerformed
 textpc.enable(true);  
 //opcmix.enable(true);
-textpc.setText("");
+if(textpc.getText()==""){textpc.setText("");} else textpc.setText(textpc.getText());
+
 //opcmulti.enable(false);// TODO add your handling code here:
     }//GEN-LAST:event_opcmixActionPerformed
 
     private void opcdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcdActionPerformed
-base="10";        // TODO add your handling code here:
+textpmatiz.enable(true);
+        base="10"; 
+textppala.setText("");
+textppala.enable(false);// TODO add your handling code here:
     }//GEN-LAST:event_opcdActionPerformed
+int cantidad;
+int temporalbase;
+    private void pruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pruebaActionPerformed
+
+        //resultadop.setText(base);
+        
+       
+   if( textpm.getText() ==null || textpm.getText().equals("") || textpa.getText() ==null || textpa.getText().equals("")||textpc.getText() ==null || textpc.getText().equals("")|| textpx0.getText() ==null || textpx0.getText().equals("")||textpn.getText() ==null || textpn.getText().equals(""))
+   {resultadop.setText("ERROR !!!! !!");
+   
+   
+   //Icon ico = new ImageIcon(getClass().getResource("/imagenes/image.png"));
+   JOptionPane.showMessageDialog(this,"Mensaje con imagen", "Titulo del mensaje",JOptionPane.WARNING_MESSAGE);
+   //javax.swing.JOptionPane. showMessageDialog (this, "[mira te falta llenar uno o mas espacios]");
+   
+   } 
+  
+   else{
+       
+        String tempn=textpn.getText();
+    cantidad=Integer.parseInt(tempn);
+    temporalbase=Integer.parseInt(base);
+    ///////////////////////////////
+    vector=new double[cantidad];
+    
+     if(temporalbase==2){
+    vr=new Verificar(textpm.getText(),textpa.getText(),textpc.getText(),textpx0.getText(), base,textppala.getText() );
+     resultadop.setText(textpm.getText()+""+textpa.getText()+""+textpc.getText()+""+textpx0.getText()+""+base+""+textppala.getText()+""+textpn.getText());
+     }
+     
+    if(temporalbase==10){
+    vr=new Verificar(textpm.getText(),textpa.getText(),textpc.getText(),textpx0.getText(), base,textpmatiz.getText() );
+    resultadop.setText(textpm.getText()+""+textpa.getText()+""+textpc.getText()+""+textpx0.getText()+""+base+""+textpmatiz.getText()+""+textpn.getText());
+    }  
+     //envio toda la informaicon que necesito.
+   // 
+    if(flag==false){         //si es congruencial mixto
+        double x;
+        for(int i=1; i<=cantidad; i++){
+            x=vr.formula_mixto();
+            vector[i-1]=x;
+            System.out.println((i)+". "+x);
+        }        
+    }
+    else{                       //si no 
+        double x;
+        for(int i=1; i<=cantidad; i++){
+            x=vr.formula_multi();
+            vector[i-1]=x;
+            System.out.println((i)+". "+x);
+        }        
+    }
+   }   // TODO add your handling code here:
+    }//GEN-LAST:event_pruebaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -614,13 +711,16 @@ base="10";        // TODO add your handling code here:
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTabbedPane jTabbedPane3;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JCheckBox opcb;
     private javax.swing.JCheckBox opcd;
     private javax.swing.JCheckBox opcmix;
     private javax.swing.JCheckBox opcmulti;
+    private javax.swing.JButton prueba;
+    private javax.swing.JTextArea resultadop;
+    private javax.swing.JTextArea resultadopp;
+    private javax.swing.JTabbedPane resultadospp;
     private javax.swing.JTextField textpa;
     private javax.swing.JTextField textpalf;
     private javax.swing.JTextField textpc;

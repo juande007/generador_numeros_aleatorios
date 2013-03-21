@@ -29,20 +29,18 @@ public class Verificar {
     }
      
      
-     
-     
  public double formula_mixto(){
-        double q=((x0*a)+c)%m;
-        x0=q;
-        q=q/m;    
-        return q;
+        double xi=((x0*a)+c)%m;
+        x0=xi;
+        xi=xi/m;    
+        return xi;
     }
     
 public double formula_multi(){
-        double q=(x0*a)%m;
-        x0=q;
-        q=q/m; 
-        return q;
+        double xi=(x0*a)%m;
+        x0=xi;
+        xi=xi/m; 
+        return xi;
     }
      
      
