@@ -338,6 +338,11 @@ llenar_mix();
         jLabel7.setText("Preba de distancias");
 
         jButton1.setText("Calcular");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Calcular");
 
@@ -706,6 +711,13 @@ int temporalbase;
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        pruebasEstadisticas kolmogorv =new pruebasEstadisticas();
+        
+        resultadopp.setText("Kolmogorov Zc ="+kolmogorv.KolmogorovSmith(vector));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
  public void traerPrimo(long valor){
         long carro=1;
