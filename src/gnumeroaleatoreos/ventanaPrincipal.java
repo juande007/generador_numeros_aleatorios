@@ -9,10 +9,12 @@ import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
+
 /**
  *
  * @author juan
@@ -311,6 +313,8 @@ llenar_mix();
 
         resultadospp.addTab("Resultados", jScrollPane3);
 
+        resultadospp.setSelectedIndex(1);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -334,10 +338,20 @@ llenar_mix();
         jLabel7.setText("Preba de distancias");
 
         jButton1.setText("Calcular");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Calcular");
 
         jButton2.setText("Calcular");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel6.setText("Pruebas Estadisticas");
@@ -528,7 +542,7 @@ llenar_mix();
                                     .addComponent(proponer))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
@@ -717,6 +731,23 @@ else {
 }
         // TODO add your handling code here:
     }//GEN-LAST:event_proponerActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        pruebasEstadisticas pr=new pruebasEstadisticas();
+        resultadopp.setText("Z calculado ="+pr.disgribucionZ(vector));
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        pruebasEstadisticas kolmogorv =new pruebasEstadisticas();
+        
+        resultadopp.setText("Kolmogorov Zc ="+kolmogorv.KolmogorovSmith(vector));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
  public void traerPrimo(long valor){
         long carro=1;
