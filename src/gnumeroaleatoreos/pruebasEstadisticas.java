@@ -24,8 +24,8 @@ public class pruebasEstadisticas {
         }
         media=sumatoria/vector.length;
         
-        double Zc=((media-0.5)*Math.sqrt((double)vector.length))/Math.sqrt((double)1/(double)12);
-        return Zc;
+        double Zc=((media-0.5)*Math.sqrt((double)vector.length))/Math.sqrt((double)1/(double)12);        
+        return Math.abs(Zc);
     }
     
     public double KolmogorovSmith(double vector[]){     
@@ -89,6 +89,43 @@ public class pruebasEstadisticas {
                 contador++;
             }
         return Zc;
+    }
+    
+    public String convertirEnTrama(int valor, int lon){
+        
+        int nDigitos= Integer.toString((int) Math.floor(valor)).length();
+        System.out.println("Digito "+nDigitos+" Tam: "+lon);
+            String num1="";
+            if(nDigitos<lon){
+                for (int i = 0; i < (lon-nDigitos); i++) {
+                    num1=num1+"0";
+                }
+            num1=num1+valor;
+            }else{
+                num1=Integer.toString(valor);
+            }
+            return num1;
+    
+    }
+    
+    public void pruebaDistancias(double vector[],int tam){
+        int contador=0;
+        String trama="";      
+       
+        double vectorEnInt[]=new double[vector.length];
+        while(contador<vector.length){
+            vectorEnInt[contador]=(vector[contador])*Math.pow(10,tam);            
+            System.out.println(vectorEnInt[contador]);
+            System.out.println("En string"+convertirEnTrama((int)vectorEnInt[contador], tam));
+            
+            contador++;
+        }
+        
+        
+        //hacerlo para huecos variados
+        
+                
+    
     }
     
 }
