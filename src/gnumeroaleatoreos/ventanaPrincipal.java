@@ -9,10 +9,12 @@ import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
+
 /**
  *
  * @author juan
@@ -310,6 +312,8 @@ llenar_mix();
 
         resultadospp.addTab("Resultados", jScrollPane3);
 
+        resultadospp.setSelectedIndex(1);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -338,6 +342,11 @@ llenar_mix();
         jButton3.setText("Calcular");
 
         jButton2.setText("Calcular");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         jLabel6.setText("Pruebas Estadisticas");
@@ -517,7 +526,7 @@ llenar_mix();
                                     .addComponent(jButton4))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
@@ -687,6 +696,16 @@ int temporalbase;
         textpn.setText("20");
         
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        pruebasEstadisticas pr=new pruebasEstadisticas();
+        resultadopp.setText("Z calculado ="+pr.disgribucionZ(vector));
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
  public void traerPrimo(long valor){
         long carro=1;
