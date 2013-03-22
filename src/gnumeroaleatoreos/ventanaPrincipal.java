@@ -103,6 +103,7 @@ llenar_mix();
         jLabel16 = new javax.swing.JLabel();
         prueba = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        proponer = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -315,9 +316,8 @@ llenar_mix();
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(resultadospp, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(resultadospp, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -453,6 +453,13 @@ llenar_mix();
             }
         });
 
+        proponer.setText("Proponer");
+        proponer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proponerActionPerformed(evt);
+            }
+        });
+
         jMenu1.setText("File");
 
         jMenuItem1.setText("jMenuItem1");
@@ -484,15 +491,18 @@ llenar_mix();
                         .addGap(36, 36, 36)
                         .addComponent(prueba)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4))
+                        .addComponent(jButton4)
+                        .addGap(18, 18, 18)
+                        .addComponent(proponer)
+                        .addGap(0, 394, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(123, Short.MAX_VALUE)
+                .addContainerGap(269, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(543, 543, 543))
         );
@@ -514,7 +524,8 @@ llenar_mix();
                                 .addGap(16, 16, 16)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(prueba)
-                                    .addComponent(jButton4))
+                                    .addComponent(jButton4)
+                                    .addComponent(proponer))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(36, Short.MAX_VALUE))
@@ -648,12 +659,17 @@ int temporalbase;
     
      if(temporalbase==2){
     vr=new Verificar(textpm.getText(),textpa.getText(),textpc.getText(),textpx0.getText(), base,textppala.getText() );
-     resultadop.setText(textpm.getText()+""+textpa.getText()+""+textpc.getText()+""+textpx0.getText()+""+base+""+textppala.getText()+""+textpn.getText());
+    // resultadop.setText(textpm.getText()+""+textpa.getText()+""+textpc.getText()+""+textpx0.getText()+""+base+""+textppala.getText()+""+textpn.getText());
+    resultadop.setText(vr.saber_m_multi()+"\n"+vr.saber_a_multi()+"\n"+vr.saber_x0_multi());
+    
      }
      
     if(temporalbase==10){
     vr=new Verificar(textpm.getText(),textpa.getText(),textpc.getText(),textpx0.getText(), base,textpmatiz.getText() );
-    resultadop.setText(textpm.getText()+""+textpa.getText()+""+textpc.getText()+""+textpx0.getText()+""+base+""+textpmatiz.getText()+""+textpn.getText());
+    //resultadop.setText(textpm.getText()+""+textpa.getText()+""+textpc.getText()+""+textpx0.getText()+""+base+""+textpmatiz.getText()+""+textpn.getText());
+    resultadop.setText(vr.saber_m_multi()+"\n"+vr.saber_a_multi()+"\n"+vr.saber_x0_multi());
+    
+    
     }  
      //envio toda la informaicon que necesito.
    // 
@@ -687,6 +703,20 @@ int temporalbase;
         textpn.setText("20");
         
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void proponerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proponerActionPerformed
+int temporalbase2;
+   temporalbase2=Integer.parseInt(base);
+        if(temporalbase2==2){
+        resultadop.setText(vr.proponer_multi_m()+"\n"+vr.proponer_multi_a()+"\n"+vr.proponer_x0_multi());
+}
+
+else {
+
+  resultadop.setText(vr.proponer_multi_m()+"\n"+vr.proponer_multi_a()+"\n"+vr.proponer_x0_multi());
+}
+        // TODO add your handling code here:
+    }//GEN-LAST:event_proponerActionPerformed
 
  public void traerPrimo(long valor){
         long carro=1;
@@ -813,6 +843,7 @@ int temporalbase;
     private javax.swing.JCheckBox opcd;
     private javax.swing.JCheckBox opcmix;
     private javax.swing.JCheckBox opcmulti;
+    private javax.swing.JButton proponer;
     private javax.swing.JButton prueba;
     private javax.swing.JTextArea resultadop;
     private javax.swing.JTextArea resultadopp;
