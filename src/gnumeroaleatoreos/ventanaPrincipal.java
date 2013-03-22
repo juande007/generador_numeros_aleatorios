@@ -627,17 +627,20 @@ flag=true;
     }//GEN-LAST:event_opcmultiActionPerformed
 
     public void llenar_mix(){
+        flag=false;   
     textpc.enable(true);  
 //opcmix.enable(true);
 if(textpc.getText()==""){textpc.setText("");} else textpc.setText(textpc.getText());
     }
     private void opcmixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcmixActionPerformed
-llenar_mix();
+
+        llenar_mix();
 
 //opcmulti.enable(false);// TODO add your handling code here:
     }//GEN-LAST:event_opcmixActionPerformed
 public void llenar_decimal(){textpmatiz.enable(true);
-        base="10"; 
+     
+base="10"; 
 textppala.setText("");
 textppala.enable(false);
 textpmatiz.setText("0");}
@@ -671,7 +674,34 @@ int temporalbase;
     ///////////////////////////////
     vector=new double[cantidad];
     
-     if(temporalbase==2){
+   
+   // 
+    if(flag==false){         //si es congruencial mixto
+        double x;
+        
+              if(temporalbase==2){
+    vr=new Verificar(textpm.getText(),textpa.getText(),textpc.getText(),textpx0.getText(), base,textppala.getText() );
+    // resultadop.setText(textpm.getText()+""+textpa.getText()+""+textpc.getText()+""+textpx0.getText()+""+base+""+textppala.getText()+""+textpn.getText());
+    resultadop.setText(vr.saber_mix_m()+"\n"+vr.saber_mix_c());
+    
+     }
+     
+    if(temporalbase==10){
+    vr=new Verificar(textpm.getText(),textpa.getText(),textpc.getText(),textpx0.getText(), base,textpmatiz.getText() );
+    //resultadop.setText(textpm.getText()+""+textpa.getText()+""+textpc.getText()+""+textpx0.getText()+""+base+""+textpmatiz.getText()+""+textpn.getText());
+    resultadop.setText(vr.saber_mix_m()+"\n"+vr.saber_mix_c());
+   
+    } 
+        
+        for(int i=1; i<=cantidad; i++){
+            x=vr.formula_mixto();
+            vector[i-1]=x;
+            System.out.println((i)+". "+x);
+        }        
+    }
+    else{                       //si no 
+        double x;
+          if(temporalbase==2){
     vr=new Verificar(textpm.getText(),textpa.getText(),textpc.getText(),textpx0.getText(), base,textppala.getText() );
     // resultadop.setText(textpm.getText()+""+textpa.getText()+""+textpc.getText()+""+textpx0.getText()+""+base+""+textppala.getText()+""+textpn.getText());
     resultadop.setText(vr.saber_m_multi()+"\n"+vr.saber_a_multi()+"\n"+vr.saber_x0_multi());
@@ -682,26 +712,16 @@ int temporalbase;
     vr=new Verificar(textpm.getText(),textpa.getText(),textpc.getText(),textpx0.getText(), base,textpmatiz.getText() );
     //resultadop.setText(textpm.getText()+""+textpa.getText()+""+textpc.getText()+""+textpx0.getText()+""+base+""+textpmatiz.getText()+""+textpn.getText());
     resultadop.setText(vr.saber_m_multi()+"\n"+vr.saber_a_multi()+"\n"+vr.saber_x0_multi());
-    
-    
+   
     }  
-     //envio toda la informaicon que necesito.
-   // 
-    if(flag==false){         //si es congruencial mixto
-        double x;
-        for(int i=1; i<=cantidad; i++){
-            x=vr.formula_mixto();
-            vector[i-1]=x;
-            System.out.println((i)+". "+x);
-        }        
-    }
-    else{                       //si no 
-        double x;
+     //envio
         for(int i=1; i<=cantidad; i++){
             x=vr.formula_multi();
             vector[i-1]=x;
             System.out.println((i)+". "+x);
-        }        
+        }  
+        
+        
     }
    }   // TODO add your handling code here:
     }//GEN-LAST:event_pruebaActionPerformed
@@ -721,12 +741,14 @@ int temporalbase;
     private void proponerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proponerActionPerformed
 int temporalbase2;
    temporalbase2=Integer.parseInt(base);
+   
+   
+   
+   
         if(temporalbase2==2){
         resultadop.setText(vr.proponer_multi_m()+"\n"+vr.proponer_multi_a()+"\n"+vr.proponer_x0_multi());
 }
-
 else {
-
   resultadop.setText(vr.proponer_multi_m()+"\n"+vr.proponer_multi_a()+"\n"+vr.proponer_x0_multi());
 }
         // TODO add your handling code here:
@@ -749,37 +771,7 @@ else {
         resultadopp.setText("Kolmogorov Zc ="+kolmogorv.KolmogorovSmith(vector));
     }//GEN-LAST:event_jButton1ActionPerformed
 
- public void traerPrimo(long valor){
-        long carro=1;
-        long carro2=2;        
-        
-        long contador =2;
-        long primo=2;
-        long primoAnterior=2;
-        Boolean bandera=true;
-        do {
-            carro++;
-           // System.out.println("Carro2: "+carro2+" carro:"+carro);
-            while (carro2<=carro) {                
-                
-                if (carro2==carro) {
-                    primo=carro;    
-                    System.out.println("Primo"+primo);
-                    
-                    
-                }else             
-                if ((carro%carro2)==0) {
-                    carro2=carro+1;
-                    
-                    
-                }
-             
-                carro2++;
-            }
-            carro2=2;
-        } while (carro!=valor );        
-        System.out.println("Primo final"+primo);
-    }  
+ 
  
   
     

@@ -13,8 +13,11 @@ public class Verificar {
     int  base;
     int palamiz;
    String[] resultadomulti = new String[3];
+   String[] resultadomix = new String[3];
    double[] tempmulti = new double[5];
+   double[] tempmix = new double[5];
     String[] proponermulti = new String[3];
+    String[] proponermix = new String[3];
    // int[]pb = new int[1];
 //////////////
     
@@ -52,17 +55,52 @@ public double formula_multi(){
         return xi;
     }
      
-//public void analisar_mixto(){}
 
-//public void analisar_multi(){
+////////////////////////////////////////////////////////////////
 
-//validar M !!!!
-    //saber_m_multi();
-//validar A !!!!
-    
-//validar x0 !!!   
-//}
+public String saber_mix_m(){
+double msaberm;
+msaberm=Math.pow(base, palamiz);
+double primocerca=traerPrimo((int)Math.pow(base, palamiz));
 
+ if(m==primocerca)
+            {
+                return"EL VALOR DE M ES BUENO";
+               // yes=true;mx=true;
+            }
+
+if(msaberm!=m)
+        {
+            return"EL VALOR DE M ES MALO";
+            //yes=true;mx=true;
+        }
+        else{return"EL VALOR DE M ES REGULAR";}
+
+          
+}
+public String saber_mix_a(){
+
+
+
+return"";
+}
+
+public String saber_mix_c(){
+double ct=0;
+ct=c%8;
+        {   if(ct==5)
+            {   return"EL VALOR DE C ES BUENO";    }
+            else{
+            resultadomix[2]="EL VALOR DE C ES MALO";
+            return"EL VALOR DE C ES MALO";}
+        }
+       
+//return"NO ENTIENDO ESTO";
+}
+
+
+
+/////////////////////////////////////////////////////////////////
 public String proponer_multi_m(){
 System.out.println("entre a funcion");
     if(resultadomulti[0]!=null){
@@ -117,7 +155,7 @@ public String saber_a_multi(){
     if(base==10){
     
   partent=ai/200;
-   System.out.println(partent+"acaaaaaaaaaaaaaaaaaa");
+  // System.out.println(partent+"acaaaaaaaaaaaaaaaaaa");
    int count=0;
    int auxn=0;
    int auxp=0;
@@ -221,5 +259,38 @@ static double maximoComunDivisor(double a, double b) {
   else
     return false;
 }
+ 
+ public double traerPrimo(double valor){
+        double carro=1;
+        double carro2=2;        
+        
+        double contador =2;
+        double primo=2;
+        double primoAnterior=2;
+        Boolean bandera=true;
+        do {
+            carro++;
+           // System.out.println("Carro2: "+carro2+" carro:"+carro);
+            while (carro2<=carro) {                
+                
+                if (carro2==carro) {
+                    primo=carro;    
+                    System.out.println("Primo"+primo);
+                    
+                    
+                }else             
+                if ((carro%carro2)==0) {
+                    carro2=carro+1;
+                    
+                    
+                }
+             
+                carro2++;
+            }
+            carro2=2;
+        } while (carro!=valor );        
+        return primo;
+    }  
+ 
 }
 
