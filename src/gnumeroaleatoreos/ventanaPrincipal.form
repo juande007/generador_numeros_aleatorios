@@ -79,7 +79,7 @@
               <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="308" max="32767" attributes="0"/>
+              <EmptySpace pref="347" max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="543" max="-2" attributes="0"/>
           </Group>
@@ -113,7 +113,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="48" max="32767" attributes="0"/>
+              <EmptySpace pref="60" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -452,8 +452,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="jButton3" max="32767" attributes="0"/>
-                              <Component id="jButton1" alignment="1" pref="147" max="32767" attributes="0"/>
-                              <Component id="jButton2" alignment="1" pref="147" max="32767" attributes="0"/>
+                              <Component id="jButton1" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jButton2" alignment="1" max="32767" attributes="0"/>
                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -509,7 +509,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Distribucion z"/>
+            <Property name="text" type="java.lang.String" value="Prueba de promedios"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
@@ -614,7 +614,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton4"/>
+        <Property name="text" type="java.lang.String" value="inicar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>

@@ -338,7 +338,7 @@ llenar_mix();
             }
         });
 
-        jButton2.setText("Distribucion z");
+        jButton2.setText("Prueba de promedios");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -370,8 +370,8 @@ llenar_mix();
                         .addContainerGap()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7)))
@@ -458,7 +458,7 @@ llenar_mix();
             }
         });
 
-        jButton4.setText("jButton4");
+        jButton4.setText("inicar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -513,7 +513,7 @@ llenar_mix();
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(121, 121, 121))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(308, Short.MAX_VALUE)
+                .addContainerGap(347, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(543, 543, 543))
         );
@@ -539,7 +539,7 @@ llenar_mix();
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();
@@ -679,14 +679,14 @@ int temporalbase;
               if(temporalbase==2){
     vr=new Verificar(textpm.getText(),textpa.getText(),textpc.getText(),textpx0.getText(), base,textppala.getText() );
     // resultadop.setText(textpm.getText()+""+textpa.getText()+""+textpc.getText()+""+textpx0.getText()+""+base+""+textppala.getText()+""+textpn.getText());
-    resultadop.setText(vr.saber_mix_m()+"\n"+vr.saber_mix_c());
+    resultadop.setText(vr.saber_mix_m()+"\n"+vr.saber_mix_a()+"\n"+vr.saber_mix_c());
     
      }
      
     if(temporalbase==10){
     vr=new Verificar(textpm.getText(),textpa.getText(),textpc.getText(),textpx0.getText(), base,textpmatiz.getText() );
     //resultadop.setText(textpm.getText()+""+textpa.getText()+""+textpc.getText()+""+textpx0.getText()+""+base+""+textpmatiz.getText()+""+textpn.getText());
-    resultadop.setText(vr.saber_mix_m()+"\n"+vr.saber_mix_c());
+    resultadop.setText(vr.saber_mix_m()+"\n"+vr.saber_mix_a()+"\n"+vr.saber_mix_c());
    
     } 
         
@@ -732,25 +732,32 @@ int temporalbase;
         textpc.setText("13");
         textpx0.setText("11");
         textpn.setText("20");
-        
+       // textppala.setText("8");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void proponerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proponerActionPerformed
-int temporalbase2;
+
+        
+        int temporalbase2;
    temporalbase2=Integer.parseInt(base);
    
    
-   
-   
+   if(flag==false){ 
+       
+       if(temporalbase2==2){
+        resultadop.setText("");}
+       
+   }
+   else{
         if(temporalbase2==2){
         resultadop.setText(vr.proponer_multi_m()+"\n"+vr.proponer_multi_a()+"\n"+vr.proponer_x0_multi());
 }
-else {
+        else {
   resultadop.setText(vr.proponer_multi_m()+"\n"+vr.proponer_multi_a()+"\n"+vr.proponer_x0_multi());
 }
         // TODO add your handling code here:
     }//GEN-LAST:event_proponerActionPerformed
-
+   }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         pruebasEstadisticas pr=new pruebasEstadisticas();
@@ -769,8 +776,9 @@ else {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        pruebasEstadisticas pDeDistancias=new pruebasEstadisticas();
-        pDeDistancias.pruebaDistancias(vector, 5);
+        pruebasEstadisticas pDeDistancias=new pruebasEstadisticas();        
+        resultadopp.setText("Distancias Zc ="+pDeDistancias.pruebaDistancias(vector, 5));
+        
         //        resultadopp.setText("Z calculado ="+pr.disgribucionZ(vector));
     }//GEN-LAST:event_jButton3ActionPerformed
 
